@@ -4,7 +4,7 @@
 
 This repository is a **single-file, zero-build React application** — a Design Patterns Navigator and Code Smell Diagnostic Tool for software engineers. It is served as a static HTML file with no package manager, bundler, or backend.
 
-- **Entry point / entire codebase:** `index.html` (≈416 lines, ≈82 KB)
+- **Entry point / entire codebase:** `index.html` (≈800 lines, ≈150 KB)
 - **License:** GNU GPL v3
 - **Author:** Piyush Prateek
 
@@ -19,7 +19,7 @@ All application code lives inside `index.html`. There are no separate JS, CSS, o
 | Lines (approx.) | Content |
 |---|---|
 | 1–22 | HTML shell, `<meta>` tags, CDN `<script>` tags |
-| 23–107 | `patternsData` — array of 62 design pattern objects |
+| 23–107 | `patternsData` — array of 67 design pattern objects |
 | 108–131 | `smellsData` — array of 20 code-smell symptom objects |
 | 132–152 | UI constants (`patCatColors`, `compColor`, `smellCatColors`, `sevColors`) |
 | 153–168 | `decisionTree` — nested object for interactive decision flow |
@@ -91,7 +91,9 @@ Do **not** add a build system or test framework unless explicitly asked. The sin
   example: "...",                  // string — concrete real-world scenario
   howItWorks: "...",               // string — brief mechanism description
   pairs: ["Builder", "..."],       // string[] — complementary patterns
-  tags: ["creation", "..."]        // string[] — searchable keywords
+  tags: ["creation", "..."],       // string[] — searchable keywords
+  python: "...",                   // string — Python code example
+  realWorld: "..."                 // string — non-code real-world analogy
 }
 ```
 
@@ -163,11 +165,11 @@ Renders a styled section header label. Props: `children` (text).
 Renders a badge/chip. Props: `label`, `color`, `onClick` (optional — if provided, becomes clickable).
 
 ### `NavigatorTab()`
-- Search input filters across `name`, `problem`, `when`, `example`, `tags`
+- Search input filters across `name`, `problem`, `when`, `example`, `tags`, `python`, `realWorld`
 - Category filter pills
 - Complexity sort/filter
 - Decision tree interactive flow (6 domains → sub-decisions → pattern recommendations)
-- Pattern card expanded on click
+- Pattern card expanded on click to show full details including Python code examples and real-world analogies
 
 ### `DiagnosticTab()`
 - 20 code smell symptom cards
@@ -231,13 +233,13 @@ git push -u origin claude/add-claude-documentation-1xYTo
 
 | Category | Count |
 |---|---|
-| Creational | 8 |
+| Creational | 7 |
 | Structural | 8 |
 | Behavioral | 14 |
 | Data & Persistence | 8 |
-| Infrastructure | 10 |
-| Caching | 3 |
-| Architectural | 7 |
-| **Total** | **62** |
+| Infrastructure | 17 |
+| Caching | 4 |
+| Architectural | 9 |
+| **Total** | **67** |
 
 Code smells: **20** | Decision tree domains: **6**
